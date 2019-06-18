@@ -45,6 +45,11 @@ export default class App extends Component {
         }
     }
 
+    dataDisplay = () => {
+        const { flashCards, count, display } = this.state
+        return flashCards[count][display]
+    }
+
     render() {
         if (!this.state.flashCards[0]) {
             return <div>Loading...</div>
@@ -55,6 +60,7 @@ export default class App extends Component {
                     onCardClick={this.onCardClick}
                     onClickNext={this.onClickNext}
                     onClickPrevious={this.onClickPrevious}
+                    dataDisplay={this.dataDisplay}
                     {...this.state}
                 />
             </div>
