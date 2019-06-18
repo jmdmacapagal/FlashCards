@@ -61,7 +61,6 @@ export default class App extends Component {
                     onClickNext={this.onClickNext}
                     onClickPrevious={this.onClickPrevious}
                     dataDisplay={this.dataDisplay}
-                    {...this.state}
                 />
             </div>
         )
