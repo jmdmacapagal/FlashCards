@@ -1,5 +1,5 @@
 
-const data = [
+const data = () => [
     {
         front: 'How are you?',
         back: 'Kamusta ka?'
@@ -16,5 +16,6 @@ const data = [
         front: 'Have you eaten?',
         back: 'Kumain ka na ba?'
     },
-
 ]
+
+export default data
