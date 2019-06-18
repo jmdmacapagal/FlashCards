@@ -34,15 +34,9 @@ export default class App extends Component {
     }
 
     onCardClick = e => {
-        if (this.state.display === 'front') {
-            this.setState({
-                display: 'back'
-            })
-        } else {
-            this.setState({
-                display: 'front'
-            })
-        }
+        this.state.display === 'front' ? 
+        this.setState({ display: 'back' }) : 
+        this.setState({ display : 'front' })
     }
 
     dataDisplay = () => {
