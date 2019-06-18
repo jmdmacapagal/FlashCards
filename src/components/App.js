@@ -21,7 +21,8 @@ export default class App extends Component {
                 back: 'Kumain ka na ba?'
             }
         ],
-        count: 0
+        count: 0,
+        display: 'front'
     }
 
     onClickNext = e => {
@@ -40,13 +41,29 @@ export default class App extends Component {
         }
     }
 
+    onCardClick = e => {
+        if (this.state.display === 'front') {
+            this.setState({
+                display: 'back'
+            })
+        } else {
+            this.setState({
+                display: 'front'
+            })
+        }
+    }
+
     render() {
+        const dataDisplay = this.state.flashCards[this.state.count][this.state.display]
         return (
-            <div>
-                {this.state.flashCards[this.state.count].front}
-                <div>
-                    <button onClick={this.onClickNext}>Next</button>
+            <div style={{ width: '400px', margin: 'auto', marginTop: '20px'}}>
+                <div onClick={this.onCardClick} 
+                style={{ height: '200px', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                    {dataDisplay}
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between'}}>
                     <button onClick={this.onClickPrevious}>Previous</button>
+                    <button onClick={this.onClickNext}>Next</button>
                 </div>
             </div>
         )
