@@ -1,29 +1,20 @@
 import React, { Component } from 'react'
 import FlashCard from './FlashCard'
+import flashCardData from './data' 
 import './styles/App.css'
+const data = flashCardData()
 
 export default class App extends Component {
     state = {
-        flashCards: [
-            {
-                front: 'How are you?',
-                back: 'Kamusta ka?'
-            },
-            {
-                front: 'How old are you?',
-                back: 'Ilang taon kana?'
-            },
-            {
-                front: 'Where do you live',
-                back: 'Saan ka nakatira?'
-            },
-            {
-                front: 'Have you eaten?',
-                back: 'Kumain ka na ba?'
-            }
-        ],
+        flashCards: [],
         count: 0,
         display: 'front'
+    }
+
+    componentDidMount() {
+        this.setState({
+            flashCards: data
+        }) 
     }
 
     onClickNext = e => {
@@ -55,7 +46,9 @@ export default class App extends Component {
     }
 
     render() {
-        
+        if (!this.state.flashCards[0]) {
+            return <div>Loading...</div>
+        }
         return (
             <div className="container">
                 <FlashCard
