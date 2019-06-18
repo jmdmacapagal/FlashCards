@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import FlashCard from './FlashCard'
+import './styles/App.css'
 
 export default class App extends Component {
     state = {
@@ -54,17 +55,15 @@ export default class App extends Component {
     }
 
     render() {
-        const dataDisplay = this.state.flashCards[this.state.count][this.state.display]
+        
         return (
-            <div style={{ width: '400px', margin: 'auto', marginTop: '20px'}}>
-                <div onClick={this.onCardClick} 
-                style={{ height: '200px', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                    {dataDisplay}
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between'}}>
-                    <button onClick={this.onClickPrevious}>Previous</button>
-                    <button onClick={this.onClickNext}>Next</button>
-                </div>
+            <div className="container">
+                <FlashCard
+                    onCardClick={this.onCardClick}
+                    onClickNext={this.onClickNext}
+                    onClickPrevious={this.onClickPrevious}
+                    {...this.state}
+                />
             </div>
         )
     }
