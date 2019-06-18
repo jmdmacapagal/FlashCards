@@ -1,12 +1,10 @@
 import React from 'react'
 
-const FlashCard = ({ data }) => {
-    console.log(data)
+const FlashCard = () => {
+ 
     return (
         <div>
-            <div>
-                {data.front}
-            </div>
+        
         </div>
     )
 }
